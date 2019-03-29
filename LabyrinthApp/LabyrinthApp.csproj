@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Hero\Hero.cs" />
+    <Compile Include="Hero\HeroMotions.cs" />
     <Compile Include="Labyrinth\Cell.cs" />
     <Compile Include="Labyrinth\Drawer.cs" />
     <Compile Include="Labyrinth\Labyrinth.cs" />

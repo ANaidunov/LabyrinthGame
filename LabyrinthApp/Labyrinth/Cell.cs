@@ -27,4 +27,12 @@ namespace LabyrinthApp {
             }
         }
     }
+    /*
+    enum TypeOfCell {
+        coin = 2,
+        wall = 1,
+        greatWall = 10,
+        ground = 0
+    }
+    */
 }
