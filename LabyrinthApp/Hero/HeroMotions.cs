@@ -32,6 +32,18 @@ namespace LabyrinthApp {
                             Thread.Sleep(100);
                         }
                         else {
+                            Console.WriteLine("Hero came out from borders of labyrinth");
+                            Thread.Sleep(100);
+                        }
+                        break;
+                    }
+                case ConsoleKey.S:
+                case ConsoleKey.DownArrow: {
+                        if (hero.Y + 1 > 0 && lab[hero.X, hero.Y + 1].Val != 0 && lab[hero.X, hero.Y + 1].Val != 10)
+                            hero.Y++;
+                        else if (lab[hero.X, hero.Y + 1].Val == 0) {
+                            Console.WriteLine("Hero cant walk through walls of labyrinth");
+                            Thread.Sleep(300);
                         }
                         else {
                             Console.WriteLine("Hero came out from borders of labyrinth");
