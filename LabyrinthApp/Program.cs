@@ -18,7 +18,13 @@ namespace LabyrinthApp {
             do {
                 key = Console.ReadKey();
                 heroMotions.Motion(key, lab, hero, generator);
-                Drawer.DrawLabyrinth(lab, hero);
+                if(key.Key == ConsoleKey.R) {
+                    lab = generator.GetLabirinth();
+                    hero.CoinsCount = 0;
+                    Drawer.DrawLabyrinth(lab, hero);
+                    break;
+                }
+                
             } while (key.Key != ConsoleKey.Escape);
             Console.ReadKey();
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LabyrinthApp {
     public class HeroMotions {
-       public void Motion(ConsoleKeyInfo key, Labyrinth lab, Hero hero, LabGenerator generator) {
+        public void Motion(ConsoleKeyInfo key, Labyrinth lab, Hero hero, LabGenerator generator) {
             switch (key.Key) {
                 case ConsoleKey.W:
                 case ConsoleKey.UpArrow: {
@@ -65,11 +65,7 @@ namespace LabyrinthApp {
                         }
                         break;
                     }
-                case ConsoleKey.R: {
-                        lab = generator.GetLabirinth();
-                        hero.CoinsCount = 0;
-                        break;
-                    }
+
             }
             if (lab[hero.X, hero.Y].Val == (byte)TypeOfCell.coin) {   // check pos of hero for coin
                 hero.AddCoin();
