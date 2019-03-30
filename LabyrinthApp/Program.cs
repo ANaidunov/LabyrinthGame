@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace LabyrinthApp {
     class Program {
         static void Main(string[] args) {
-            var generator = new LabGenerator(15, 13);
+            var generator = new LabGenerator(20, 13);
             var lab = generator.GetLabirinth();
-            Console.WriteLine($"Press R to start again");
             var hero = Hero.GetHero;
             Drawer.DrawLabyrinth(lab, hero);
             var heroMotions = new HeroMotions();
             ConsoleKeyInfo key;
             do {
+                Console.WriteLine($"Press R to start again");
                 key = Console.ReadKey();
                 heroMotions.Motion(key, lab, hero, generator);
                 if(key.Key == ConsoleKey.R) {
@@ -23,7 +23,6 @@ namespace LabyrinthApp {
                     hero.CoinsCount = 0;
                 }
                 Drawer.DrawLabyrinth(lab, hero);
-
             } while (key.Key != ConsoleKey.Escape);
             Console.ReadKey();
         }
