@@ -21,10 +21,9 @@ namespace LabyrinthApp {
                 if(key.Key == ConsoleKey.R) {
                     lab = generator.GetLabirinth();
                     hero.CoinsCount = 0;
-                    Drawer.DrawLabyrinth(lab, hero);
-                    break;
                 }
-                
+                Drawer.DrawLabyrinth(lab, hero);
+
             } while (key.Key != ConsoleKey.Escape);
             Console.ReadKey();
         }
