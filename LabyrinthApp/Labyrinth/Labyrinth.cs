@@ -12,11 +12,11 @@ namespace LabyrinthApp {
             for (int y = 0; y < Height; y++) {
                 for (int x = 0; x < Width; x++) {
                     if (x == 0 || x == Width - 1 || y == 0 || y == Height - 1) {
-                        var cell = new Cell(x, y, 10); // рамка - нерушимая стена
+                        var cell = new Cell(x, y, (byte)TypeOfCell.greatWall); // рамка - нерушимая стена
                         Cells.Add(cell);
                     }
                     else {
-                        var cell = new Cell(x, y, 0); // all cells are walls
+                        var cell = new Cell(x, y, (byte)TypeOfCell.wall); // all cells are walls
                         Cells.Add(cell);
                     }
                 }
@@ -39,7 +39,7 @@ namespace LabyrinthApp {
         }
 
         public void RemoveCoin(int x, int y) {
-            this[x, y].Val = 1; // coin -> pass
+            this[x, y].Val = (byte)TypeOfCell.ground; // coin -> pass
         }
 
         public int Width { get; private set; }

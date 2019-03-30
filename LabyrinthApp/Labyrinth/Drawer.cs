@@ -18,14 +18,14 @@ namespace LabyrinthApp {
                         Console.Write(hero.Symbol);
                         Console.ForegroundColor = oldColor;
                     }
-                    else if (labyrinth[x, y].Val == 10 || labyrinth[x, y].Val == 0) { // great wall or wall
+                    else if (labyrinth[x, y].Val == (byte)TypeOfCell.greatWall || labyrinth[x, y].Val == (byte)TypeOfCell.wall) { // great wall or wall
                         //var oldColor = Console.ForegroundColor;
                         Console.ForegroundColor = ConsoleColor.DarkRed;
                         //sb.Append('#');
                         Console.Write('#');
                         Console.ForegroundColor = oldColor;
                     }
-                    else if (labyrinth[x, y].Val == 2) { // coin
+                    else if (labyrinth[x, y].Val == (byte)TypeOfCell.coin) { // coin
                                                          //   var oldColor = Console.ForegroundColor;
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         //sb.Append('o');
@@ -52,13 +52,13 @@ namespace LabyrinthApp {
             var oldColor = Console.ForegroundColor;
             for (int y = 0; y < labyrinth.Height; y++) {
                 for (int x = 0; x < labyrinth.Width; x++) {
-                    if (labyrinth[x, y].Val == 10 || labyrinth[x, y].Val == 0) { // great wall or wall
+                    if (labyrinth[x, y].Val == (byte)TypeOfCell.greatWall || labyrinth[x, y].Val == (byte)TypeOfCell.wall) { // great wall or wall
                         Console.ForegroundColor = ConsoleColor.Green;
                         // sb.Append('#');
                         Console.Write('#');
                         Console.ForegroundColor = oldColor;
                     }
-                    else if (labyrinth[x, y].Val == 2) { // coin
+                    else if (labyrinth[x, y].Val == (byte)TypeOfCell.coin) { // coin
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         //sb.Append('o');
                         Console.Write('o');
