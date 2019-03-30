@@ -21,18 +21,16 @@ namespace LabyrinthApp {
                 return val;
             }
             set {
-                if (value >= 0 && value <= 2 || value == 10) {
-                    val = value;
-                }
+                val = value;
             }
         }
     }
-    /*
+    
     enum TypeOfCell {
         coin = 2,
-        wall = 1,
+        wall = 0,
         greatWall = 10,
-        ground = 0
+        ground = 1
     }
-    */
+    
 }

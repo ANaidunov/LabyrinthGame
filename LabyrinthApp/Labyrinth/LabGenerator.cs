@@ -115,16 +115,16 @@ namespace LabyrinthApp {
 
         private bool IsVisited(Cell cell, Labyrinth lab) {
             if (cell == null) return true;
-            if (lab[cell.X - 1, cell.Y] != null && cell.X - 1 >= 0 && lab[cell.X - 1, cell.Y].Val != 0 && lab[cell.X - 1, cell.Y].Val != 10) {
+            if (lab[cell.X - 1, cell.Y] != null && cell.X - 1 >= 0 && lab[cell.X - 1, cell.Y].Val != (byte)TypeOfCell.wall && lab[cell.X - 1, cell.Y].Val != (byte)TypeOfCell.greatWall) {
                 return true;
             }
-            if (lab[cell.X + 1, cell.Y] != null && cell.X + 1 <= lab.Width - 1 && lab[cell.X + 1, cell.Y].Val != 0 && lab[cell.X + 1, cell.Y].Val != 10) {
+            if (lab[cell.X + 1, cell.Y] != null && cell.X + 1 <= lab.Width - 1 && lab[cell.X + 1, cell.Y].Val != (byte)TypeOfCell.wall && lab[cell.X + 1, cell.Y].Val != (byte)TypeOfCell.greatWall) {
                 return true;
             }
-            if (lab[cell.X, cell.Y - 1] != null && cell.Y - 1 >= 0 && lab[cell.X, cell.Y - 1].Val != 0 && lab[cell.X, cell.Y - 1].Val != 10) {
+            if (lab[cell.X, cell.Y - 1] != null && cell.Y - 1 >= 0 && lab[cell.X, cell.Y - 1].Val != (byte)TypeOfCell.wall && lab[cell.X, cell.Y - 1].Val != (byte)TypeOfCell.greatWall) {
                 return true;
             }
-            if (lab[cell.X, cell.Y + 1] != null && cell.X + 1 <= lab.Width - 1 && lab[cell.X, cell.Y + 1].Val != 0 && lab[cell.X, cell.Y + 1].Val != 10) {
+            if (lab[cell.X, cell.Y + 1] != null && cell.X + 1 <= lab.Width - 1 && lab[cell.X, cell.Y + 1].Val != (byte)TypeOfCell.wall && lab[cell.X, cell.Y + 1].Val != (byte)TypeOfCell.greatWall) {
                 return true;
             }
             return false;
