@@ -11,6 +11,7 @@ namespace LabyrinthApp {
             var generator = new LabGenerator(21, 13);
             var lab = generator.GetLabyrinth();
             var hero = Hero.GetHero;
+            lab.SpawnHero();
             Drawer.DrawLabyrinth(lab, true);
             var heroMotions = new HeroMotions();
             ConsoleKeyInfo key;
@@ -21,6 +22,7 @@ namespace LabyrinthApp {
                 if(key.Key == ConsoleKey.R) {
                     lab = generator.GetLabyrinth();
                     hero.CoinsCount = 0;
+                    lab.SpawnHero();
                 }
                 Drawer.DrawLabyrinth(lab, true);
             } while (key.Key != ConsoleKey.Escape);

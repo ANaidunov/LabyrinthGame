@@ -23,6 +23,18 @@ namespace LabyrinthApp {
             }
         }
 
+        public void SpawnHero() {  // spawn hero only in ground cells
+            var hero = Hero.GetHero;
+            var cells = from cel in this.Cells
+                        where cel.Val == TypeOfCell.ground
+                        select cel;
+            var cellsList = cells.ToList();
+            Random rnd = new Random();
+            var randIdnex = rnd.Next(cellsList.Count);
+            hero.X = cellsList[randIdnex].X;
+            hero.Y = cellsList[randIdnex].Y;
+        }
+
         public Cell this[int x, int y] {
             get {
                 return Cells.SingleOrDefault(cell => cell.X == x && cell.Y == y);

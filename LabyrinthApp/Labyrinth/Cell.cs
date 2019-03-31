@@ -14,16 +14,7 @@ namespace LabyrinthApp {
 
         public int X { get; }
         public int Y { get; }
-        private TypeOfCell val;
-        // Vol 0 - wall, 1 - cell without coin, 2 - cell with coin 
-        public TypeOfCell Val {
-            get {
-                return val;
-            }
-            set {
-                val = value;
-            }
-        }
+        public TypeOfCell Val { get; set; }
     }
     
     public enum TypeOfCell {
