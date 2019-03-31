@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabyrinthApp {
     public class Cell {
-        public Cell(int x, int y, byte typeOfCell) {
+        public Cell(int x, int y, TypeOfCell typeOfCell) {
             X = x;
             Y = y;
             Val = typeOfCell;
@@ -14,9 +14,9 @@ namespace LabyrinthApp {
 
         public int X { get; }
         public int Y { get; }
-        private byte val;
+        private TypeOfCell val;
         // Vol 0 - wall, 1 - cell without coin, 2 - cell with coin 
-        public byte Val {
+        public TypeOfCell Val {
             get {
                 return val;
             }
@@ -26,7 +26,7 @@ namespace LabyrinthApp {
         }
     }
     
-    enum TypeOfCell {
+    public enum TypeOfCell {
         coin = 2,
         wall = 0,
         greatWall = 10,

@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace LabyrinthApp {
     public class HeroMotions {
-        public void Motion(ConsoleKeyInfo key, Labyrinth lab, Hero hero, LabGenerator generator) {
+        public void Motion(ConsoleKeyInfo key, Labyrinth lab) {
+            var hero = Hero.GetHero;
             switch (key.Key) {
                 case ConsoleKey.W:
                 case ConsoleKey.UpArrow: {
-                        if (hero.Y - 1 > 0 && lab[hero.X, hero.Y - 1].Val != (byte)TypeOfCell.wall && lab[hero.X, hero.Y - 1].Val != (byte)TypeOfCell.wall)
+                        if (hero.Y - 1 > 0 && lab[hero.X, hero.Y - 1].Val != TypeOfCell.wall && lab[hero.X, hero.Y - 1].Val != TypeOfCell.wall)
                             hero.Y--;
-                        else if (lab[hero.X, hero.Y - 1].Val == (byte)TypeOfCell.wall) {
+                        else if (lab[hero.X, hero.Y - 1].Val == TypeOfCell.wall) {
                             Console.WriteLine("Hero cant walk through walls of labyrinth");
                             Thread.Sleep(100);
                         }
@@ -25,9 +26,9 @@ namespace LabyrinthApp {
                     }
                 case ConsoleKey.D:
                 case ConsoleKey.RightArrow: {
-                        if (hero.X + 1 > 0 && lab[hero.X + 1, hero.Y].Val != (byte)TypeOfCell.wall && lab[hero.X + 1, hero.Y].Val != (byte)TypeOfCell.greatWall)
+                        if (hero.X + 1 > 0 && lab[hero.X + 1, hero.Y].Val != TypeOfCell.wall && lab[hero.X + 1, hero.Y].Val != TypeOfCell.greatWall)
                             hero.X++;
-                        else if (lab[hero.X + 1, hero.Y].Val == (byte)TypeOfCell.wall) {
+                        else if (lab[hero.X + 1, hero.Y].Val == TypeOfCell.wall) {
                             Console.WriteLine("Hero cant walk through walls of labyrinth");
                             Thread.Sleep(100);
                         }
@@ -39,9 +40,9 @@ namespace LabyrinthApp {
                     }
                 case ConsoleKey.S:
                 case ConsoleKey.DownArrow: {
-                        if (hero.Y + 1 > 0 && lab[hero.X, hero.Y + 1].Val != (byte)TypeOfCell.wall && lab[hero.X, hero.Y + 1].Val != (byte)TypeOfCell.greatWall)
+                        if (hero.Y + 1 > 0 && lab[hero.X, hero.Y + 1].Val != TypeOfCell.wall && lab[hero.X, hero.Y + 1].Val != TypeOfCell.greatWall)
                             hero.Y++;
-                        else if (lab[hero.X, hero.Y + 1].Val == (byte)TypeOfCell.wall) {
+                        else if (lab[hero.X, hero.Y + 1].Val == TypeOfCell.wall) {
                             Console.WriteLine("Hero cant walk through walls of labyrinth");
                             Thread.Sleep(300);
                         }
@@ -53,9 +54,9 @@ namespace LabyrinthApp {
                     }
                 case ConsoleKey.A:
                 case ConsoleKey.LeftArrow: {
-                        if (hero.Y > 0 && lab[hero.X - 1, hero.Y].Val != (byte)TypeOfCell.wall && lab[hero.X - 1, hero.Y].Val != (byte)TypeOfCell.greatWall)
+                        if (hero.Y > 0 && lab[hero.X - 1, hero.Y].Val != TypeOfCell.wall && lab[hero.X - 1, hero.Y].Val != TypeOfCell.greatWall)
                             hero.X--;
-                        else if (lab[hero.X, hero.Y + 1].Val == (byte)TypeOfCell.wall) {
+                        else if (lab[hero.X, hero.Y + 1].Val == TypeOfCell.wall) {
                             Console.WriteLine("Hero cant walk through walls of labyrinth");
                             Thread.Sleep(100);
                         }
@@ -67,10 +68,15 @@ namespace LabyrinthApp {
                     }
 
             }
-            if (lab[hero.X, hero.Y].Val == (byte)TypeOfCell.coin) {   // check pos of hero for coin
+            if (lab[hero.X, hero.Y].Val == TypeOfCell.coin) {   // check pos of hero for coin
                 hero.AddCoin();
                 lab.RemoveCoin(hero.X, hero.Y);
             }
         }
     }
+    /*
+    public bool CheckIsOutOfBorders(Labyrinth lab) {
+        return 
+    }
+    */
 }

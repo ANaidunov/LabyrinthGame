@@ -25,14 +25,14 @@ namespace LabyrinthApp {
         /// <summary>
         /// You can pass custom width and height
         /// </summary>
-        /// <param name="width">width of labirinth</param>
-        /// <param name="height">height of labirinth</param>
+        /// <param name="width">width of labyrinth</param>
+        /// <param name="height">height of labyrinth</param>
         public LabGenerator(int width, int height) {
             Width = width;
             Height = height;
         }
 
-        public Labyrinth GetLabirinth() {
+        public Labyrinth GetLabyrinth() {
             _lab = new Labyrinth(Width, Height);
 
             for (int x = 1; x < _lab.Width - 1; x += 2) {
@@ -46,8 +46,7 @@ namespace LabyrinthApp {
         }
 
         private void Step(Cell currentCell, Labyrinth lab) {
-           
-            currentCell.Val = (byte)rnd.Next(1, 3);    //rnd 1 or 2 (zero or coin)
+            currentCell.Val = (TypeOfCell)rnd.Next(1, 3);    //rnd 1 or 2 (zero or coin)
             var neighbourCells = GetNeighbourCells(currentCell, lab);
             if (neighbourCells[0] != null || neighbourCells[1] != null || neighbourCells[2] != null || neighbourCells[3] != null) {
                 var randIdnex = rnd.Next(neighbourCells.Count);
@@ -60,20 +59,20 @@ namespace LabyrinthApp {
 
                 switch (randIdnex) {
                     case 0: // left
-                        lab[currentCell.X - 1, currentCell.Y].Val = (byte)rnd.Next(1, 3);
+                        lab[currentCell.X - 1, currentCell.Y].Val = (TypeOfCell)rnd.Next(1, 3);
                         break;
                     case 1: // right
-                        lab[currentCell.X + 1, currentCell.Y].Val = (byte)rnd.Next(1, 3);
+                        lab[currentCell.X + 1, currentCell.Y].Val = (TypeOfCell)rnd.Next(1, 3);
                         break;
                     case 2: // up 
-                        lab[currentCell.X, currentCell.Y - 1].Val = (byte)rnd.Next(1, 3);
+                        lab[currentCell.X, currentCell.Y - 1].Val = (TypeOfCell)rnd.Next(1, 3);
                         break;
                     case 3: // down
-                        lab[currentCell.X, currentCell.Y + 1].Val = (byte)rnd.Next(1, 3);
+                        lab[currentCell.X, currentCell.Y + 1].Val = (TypeOfCell)rnd.Next(1, 3);
                         break;
 
                 }
-                //currentCell.Val = (byte)rnd.Next(1,2);    //rnd 1 or 2 (zero or coin)
+                //currentCell.Val = rnd.Next(1,2);    //rnd 1 or 2 (zero or coin)
                 _blueCells.Remove(nextCell);
                 _orangeCells.Add(nextCell);
 
@@ -115,16 +114,24 @@ namespace LabyrinthApp {
 
         private bool IsVisited(Cell cell, Labyrinth lab) {
             if (cell == null) return true;
-            if (lab[cell.X - 1, cell.Y] != null && cell.X - 1 >= 0 && lab[cell.X - 1, cell.Y].Val != (byte)TypeOfCell.wall && lab[cell.X - 1, cell.Y].Val != (byte)TypeOfCell.greatWall) {
+            if (lab[cell.X - 1, cell.Y] != null && cell.X - 1 >= 0 
+                && lab[cell.X - 1, cell.Y].Val != TypeOfCell.wall 
+                && lab[cell.X - 1, cell.Y].Val != TypeOfCell.greatWall) {
                 return true;
             }
-            if (lab[cell.X + 1, cell.Y] != null && cell.X + 1 <= lab.Width - 1 && lab[cell.X + 1, cell.Y].Val != (byte)TypeOfCell.wall && lab[cell.X + 1, cell.Y].Val != (byte)TypeOfCell.greatWall) {
+            if (lab[cell.X + 1, cell.Y] != null && cell.X + 1 <= lab.Width - 1 
+                && lab[cell.X + 1, cell.Y].Val != TypeOfCell.wall 
+                && lab[cell.X + 1, cell.Y].Val != TypeOfCell.greatWall) {
                 return true;
             }
-            if (lab[cell.X, cell.Y - 1] != null && cell.Y - 1 >= 0 && lab[cell.X, cell.Y - 1].Val != (byte)TypeOfCell.wall && lab[cell.X, cell.Y - 1].Val != (byte)TypeOfCell.greatWall) {
+            if (lab[cell.X, cell.Y - 1] != null && cell.Y - 1 >= 0 
+                && lab[cell.X, cell.Y - 1].Val != TypeOfCell.wall 
+                && lab[cell.X, cell.Y - 1].Val != TypeOfCell.greatWall) {
                 return true;
             }
-            if (lab[cell.X, cell.Y + 1] != null && cell.X + 1 <= lab.Width - 1 && lab[cell.X, cell.Y + 1].Val != (byte)TypeOfCell.wall && lab[cell.X, cell.Y + 1].Val != (byte)TypeOfCell.greatWall) {
+            if (lab[cell.X, cell.Y + 1] != null && cell.X + 1 <= lab.Width - 1 
+                && lab[cell.X, cell.Y + 1].Val != TypeOfCell.wall 
+                && lab[cell.X, cell.Y + 1].Val != TypeOfCell.greatWall) {
                 return true;
             }
             return false;
