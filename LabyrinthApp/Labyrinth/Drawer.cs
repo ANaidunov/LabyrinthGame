@@ -41,7 +41,7 @@ namespace LabyrinthApp {
             }
             Console.ForegroundColor = ConsoleColor.DarkCyan;
           //sb.AppendLine($"Count of coins: {hero.CoinsCount}");
-            Console.WriteLine($"Count of coins: {hero.CoinsCount}");
+            Console.WriteLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
             Console.ForegroundColor = oldColor;
           //Console.Write(sb);
         }
