@@ -16,7 +16,7 @@ namespace LabyrinthApp {
                 for (int x = 0; x < labyrinth.Width; x++) {
                     if (drawHero && labyrinth[x, y].X == hero.X && labyrinth[x, y].Y == hero.Y) {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        // sb.Append(hero.Symbol);
+                        //sb.Append(hero.Symbol);
                         Console.Write(hero.Symbol);
                         Console.ForegroundColor = oldColor;
                     }
@@ -34,16 +34,21 @@ namespace LabyrinthApp {
                     }
                     else  // pass
                         Console.Write(' ');
-                        //sb.Append(' ');
+                    // sb.Append(' ');
                 }
-                //  sb.AppendLine();
+                //sb.AppendLine();
                 Console.WriteLine();
             }
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-          //sb.AppendLine($"Count of coins: {hero.CoinsCount}");
+            sb.AppendLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
             Console.WriteLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
             Console.ForegroundColor = oldColor;
-          //Console.Write(sb);
+            //Console.Write(sb);
+        }
+        
+        public static void WriteRules() {
+            Console.WriteLine($"Press R to start again");
+            Console.WriteLine($"Collect all coins to win!");
         }
     }
 }
