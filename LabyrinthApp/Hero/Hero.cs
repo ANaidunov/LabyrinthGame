@@ -12,7 +12,7 @@ namespace LabyrinthApp {
         public int CoinsCount { get; set; } = 0;
 
         public void AddCoin() {
-            CoinsCount += 1;
+            CoinsCount++;
         }
 
         private static Hero _hero;

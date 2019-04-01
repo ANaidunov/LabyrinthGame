@@ -23,6 +23,13 @@ namespace LabyrinthApp {
             }
         }
 
+        public void GetCoinsCount() {
+            var cellsCoin = from cel in this.Cells
+                            where cel.Val == TypeOfCell.coin
+                            select cel;
+            this.CoinsCount = cellsCoin.Count();
+        }
+
         public void SpawnHero() {  // spawn hero only in ground cells
             var hero = Hero.GetHero;
             var cells = from cel in this.Cells
@@ -57,5 +64,6 @@ namespace LabyrinthApp {
         public int Width { get; private set; }
         public int Height { get; private set; }
         public List<Cell> Cells { get; set; } = new List<Cell>();
+        public int CoinsCount { get; set; } = 0;
     }
 }

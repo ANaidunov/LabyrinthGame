@@ -84,6 +84,7 @@ namespace LabyrinthApp {
                 _orangeCells.Remove(nextCell);
                 Step(nextCell, lab);
             }
+            lab.GetCoinsCount();
             return;
         }
 
