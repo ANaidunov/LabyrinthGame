@@ -29,20 +29,28 @@ namespace LabyrinthApp {
         /// <param name="height">height of labyrinth</param>
         public LabGenerator(int width, int height) {
             Width = width;
-            Height = height;
+            Height = height; 
         }
 
         public Labyrinth GetLabyrinth() {
-            _lab = new Labyrinth(Width, Height);
+            if (CheckLabSizes(Width, Height)) {
+                _lab = new Labyrinth(Width, Height);
 
-            for (int x = 1; x < _lab.Width - 1; x += 2) {
-                for (int y = 1; y < _lab.Height - 1; y += 2) {
-                    _blueCells.Add(_lab[x, y]);
+                for (int x = 1; x < _lab.Width - 1; x += 2) {
+                    for (int y = 1; y < _lab.Height - 1; y += 2) {
+                        _blueCells.Add(_lab[x, y]);
+                    }
                 }
-            }
 
-            Step(GetRandomCell(_blueCells), _lab);
+                Step(GetRandomCell(_blueCells), _lab);
+            }
             return _lab;
+        }
+
+        public static bool CheckLabSizes(int width, int height) {
+            if (height >= 3 && width >= 3)
+                return true;
+            return false;
         }
 
         private void Step(Cell currentCell, Labyrinth lab) {
@@ -84,7 +92,6 @@ namespace LabyrinthApp {
                 _orangeCells.Remove(nextCell);
                 Step(nextCell, lab);
             }
-            lab.GetCoinsCount();
             return;
         }
 

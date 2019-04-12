@@ -39,11 +39,14 @@ namespace LabyrinthApp {
                 //sb.AppendLine();
                 Console.WriteLine();
             }
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            sb.AppendLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
-            Console.WriteLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
-            Console.ForegroundColor = oldColor;
             //Console.Write(sb);
+        }
+
+        public static void WriteStats(Labyrinth labyrinth) {
+            var hero = Hero.GetHero;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
         
         public static void WriteRules() {

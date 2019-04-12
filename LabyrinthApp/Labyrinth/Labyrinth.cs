@@ -24,22 +24,23 @@ namespace LabyrinthApp {
         }
 
         public void GetCoinsCount() {
-            var cellsCoin = from cel in this.Cells
+            var cellsCoin = from cel in Cells
                             where cel.Val == TypeOfCell.coin
                             select cel;
-            this.CoinsCount = cellsCoin.Count();
+            CoinsCount = cellsCoin.Count();
         }
 
         public void SpawnHero() {  // spawn hero only in ground cells
             var hero = Hero.GetHero;
-            var cells = from cel in this.Cells
-                        where cel.Val == TypeOfCell.ground
-                        select cel;
+            var cells = Cells.Where(cell => (cell.Val == TypeOfCell.ground) || (cell.Val == TypeOfCell.coin));
             var cellsList = cells.ToList();
             Random rnd = new Random();
             var randIdnex = rnd.Next(cellsList.Count);
             hero.X = cellsList[randIdnex].X;
             hero.Y = cellsList[randIdnex].Y;
+            if (cellsList[randIdnex].Val == TypeOfCell.coin) {
+                RemoveCoin(hero.X, hero.Y);
+            }
         }
 
         public Cell this[int x, int y] {
