@@ -29,7 +29,7 @@ namespace LabyrinthApp {
         /// <param name="height">height of labyrinth</param>
         public LabGenerator(int width, int height) {
             Width = width;
-            Height = height; 
+            Height = height;
         }
 
         public Labyrinth GetLabyrinth() {

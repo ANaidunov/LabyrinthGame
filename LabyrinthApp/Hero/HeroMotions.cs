@@ -33,7 +33,7 @@ namespace LabyrinthApp {
                     case ConsoleKey.S:
                     case ConsoleKey.DownArrow: {
                             if (hero.Y + 1 > 0 && lab[hero.X, hero.Y + 1].Val != TypeOfCell.wall
-                                && lab[hero.X, hero.Y + 1].Val != TypeOfCell.greatWall) { 
+                                && lab[hero.X, hero.Y + 1].Val != TypeOfCell.greatWall) {
                                 hero.Y++;
                                 motionFlag = true;
                             }
@@ -42,7 +42,7 @@ namespace LabyrinthApp {
                     case ConsoleKey.A:
                     case ConsoleKey.LeftArrow: {
                             if (hero.Y > 0 && lab[hero.X - 1, hero.Y].Val != TypeOfCell.wall
-                                && lab[hero.X - 1, hero.Y].Val != TypeOfCell.greatWall) { 
+                                && lab[hero.X - 1, hero.Y].Val != TypeOfCell.greatWall) {
                                 hero.X--;
                                 motionFlag = true;
                             }

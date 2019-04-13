@@ -48,7 +48,7 @@ namespace LabyrinthApp {
             Console.WriteLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
-        
+
         public static void WriteRules() {
             Console.WriteLine($"Press R to start again");
             Console.WriteLine($"Collect all coins to win!");

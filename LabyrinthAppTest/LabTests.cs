@@ -1,14 +1,13 @@
-using LabyrinthApp;
+﻿using LabyrinthApp;
 using NUnit.Framework;
+using System;
 
-namespace Tests {
-    public class Tests {
-        public void Setup() {
-        }
+namespace LabyrinthTests {
+    class LabTests {
 
         [Test]
         [TestCase(1, -1)]
-        [TestCase(1,1)]
+        [TestCase(1, 1)]
         [TestCase(2, 2)]
         [TestCase(-1, -1)]
         public void TestGenerateLabWithInvalidArgs(int height, int width) {
@@ -19,7 +18,7 @@ namespace Tests {
         }
 
         [Test]
-        public void LabWasUpdateTest() {
+        public void LabWasUpdate() {
             var generator = new LabGenerator(5, 5);
             var labBefore = generator.GetLabyrinth();
 
@@ -28,8 +27,5 @@ namespace Tests {
 
             Assert.AreNotEqual(labBefore, newLab);
         }
-        /*
-        [Test]
-        public void ()*/
     }
 }
