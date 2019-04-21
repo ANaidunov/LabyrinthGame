@@ -43,14 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hero\Hero.cs" />
-    <Compile Include="Hero\HeroMotions.cs" />
-    <Compile Include="Labyrinth\Cell.cs" />
-    <Compile Include="Labyrinth\Drawer.cs" />
-    <Compile Include="Labyrinth\Labyrinth.cs" />
+    <Compile Include="SingletonHero\Hero.cs" />
+    <Compile Include="SingletonHero\HeroMotions.cs" />
+    <Compile Include="LabyrinthParts\Cell.cs" />
+    <Compile Include="LabyrinthParts\Drawer.cs" />
+    <Compile Include="LabyrinthParts\ILabGenerator.cs" />
+    <Compile Include="LabyrinthParts\ILabyrinth.cs" />
+    <Compile Include="LabyrinthParts\Labyrinth.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Labyrinth\LabGenerator.cs" />
+    <Compile Include="LabyrinthParts\LabGenerator.cs" />
+    <Compile Include="SingletonHero\IHeroMotions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

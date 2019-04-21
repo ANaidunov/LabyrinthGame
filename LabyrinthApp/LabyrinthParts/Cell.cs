@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LabyrinthApp {
+﻿namespace LabyrinthApp.LabyrinthParts {
     public class Cell {
         public Cell(int x, int y, TypeOfCell typeOfCell) {
             X = x;
@@ -16,12 +10,11 @@ namespace LabyrinthApp {
         public int Y { get; }
         public TypeOfCell Val { get; set; }
     }
-    
+
     public enum TypeOfCell {
-        coin = 2,
-        wall = 0,
-        greatWall = 10,
-        ground = 1
+        Coin = 2, //coin 2
+        Wall = 0, //wall 0
+        GreatWall = 10, //greatWall 10
+        Ground = 1 //ground 1
     }
-    
 }

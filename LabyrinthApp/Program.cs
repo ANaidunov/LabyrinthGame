@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using LabyrinthApp.LabyrinthParts;
+using LabyrinthApp.SingletonHero;
 
 namespace LabyrinthApp {
-    class Program {
-        static void Main(string[] args) {
+    internal class Program {
+        private static void Main(string[] args) {
             var level = 1;
-            var size = 2 + level;
+            var size = 4 + level;
             var generator = new LabGenerator(size, size);
             var lab = generator.GetLabyrinth();
             var hero = Hero.GetHero;
@@ -23,13 +25,13 @@ namespace LabyrinthApp {
                 return;
             }
             lab.SpawnHero();
-            lab.GetCoinsCount();
+            
             Drawer.DrawLabyrinth(lab, true);
             Drawer.WriteStats(lab);
             var heroMotions = new HeroMotions();
             ConsoleKeyInfo key;
             Drawer.WriteRules();
-            bool win = false;
+            var win = false;
             do {
                 key = Console.ReadKey();
                 if (key.Key == ConsoleKey.R) {
@@ -54,12 +56,12 @@ namespace LabyrinthApp {
                         Drawer.WriteRules();
                         Drawer.WriteStats(lab);
                     }
-                    if (lab.CoinsCount == hero.CoinsCount) {
-                        win = true;
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("You Win! Press R to start next level, or ESC to exit.");
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                    }
+
+                    if (lab.CoinsCount != hero.CoinsCount) continue;
+                    win = true;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You Win! Press R to start next level, or ESC to exit.");
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
             } while (key.Key != ConsoleKey.Escape);
         }
