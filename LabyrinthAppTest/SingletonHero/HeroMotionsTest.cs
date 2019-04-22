@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using LabyrinthApp.SingletonHero;
+using LabyrinthCore.SingletonHero;
 using Moq;
-using LabyrinthApp.LabyrinthParts;
+using LabyrinthCore.LabyrinthParts;
 
 namespace LabyrinthApp.Test.SingletonHero {
 

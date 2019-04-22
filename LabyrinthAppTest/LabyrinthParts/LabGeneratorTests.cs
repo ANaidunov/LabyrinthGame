@@ -1,5 +1,5 @@
 ﻿using System;
-using LabyrinthApp.LabyrinthParts;
+using LabyrinthCore.LabyrinthParts;
 using NUnit.Framework;
 
 namespace LabyrinthApp.Test.LabyrinthParts {

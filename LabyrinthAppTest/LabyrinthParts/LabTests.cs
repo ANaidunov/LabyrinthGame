@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using LabyrinthApp.LabyrinthParts;
-using LabyrinthApp.SingletonHero;
+using LabyrinthCore.LabyrinthParts;
+using LabyrinthCore.SingletonHero;
 using Moq;
 using NUnit.Framework;
 
