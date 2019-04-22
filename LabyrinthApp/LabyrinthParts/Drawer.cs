@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using LabyrinthApp.SingletonHero;
 
 // stringBuilder is commented
@@ -7,7 +6,8 @@ namespace LabyrinthApp.LabyrinthParts {
     public static class Drawer {
         public static void DrawLabyrinth(Labyrinth labyrinth, bool drawHero) {
             var oldColor = Console.ForegroundColor;
-            var sb = new StringBuilder();
+
+            // var sb = new StringBuilder();
             Console.Clear();
             var hero = Hero.GetHero;
 
@@ -21,7 +21,6 @@ namespace LabyrinthApp.LabyrinthParts {
                         Console.ForegroundColor = oldColor;
                     }
                     else if (labyrinth[x, y].Val == TypeOfCell.GreatWall || labyrinth[x, y].Val == TypeOfCell.Wall) {
-                        // great wall or wall
                         Console.ForegroundColor = ConsoleColor.DarkRed;
 
                         //sb.Append('#');
@@ -41,7 +40,6 @@ namespace LabyrinthApp.LabyrinthParts {
                     }
 
                 // sb.Append(' ');
-
                 //sb.AppendLine();
                 Console.WriteLine();
             }
@@ -49,10 +47,10 @@ namespace LabyrinthApp.LabyrinthParts {
             //Console.Write(sb);
         }
 
-        public static void WriteStats(Labyrinth labyrinth) {
+        public static void WriteStats(ILabyrinth labyrinth) {
             var hero = Hero.GetHero;
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine($"Count of coins: {hero.CoinsCount} from {labyrinth.CoinsCount}");
+            Console.WriteLine($"Count of coins: {hero.CoinsCount} from {labyrinth.StartCoinsCount}");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 

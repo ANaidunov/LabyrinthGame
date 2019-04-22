@@ -1,12 +1,8 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Moq;
+﻿using System;
 using LabyrinthApp.LabyrinthParts;
-using NUnit.Framework.Constraints;
+using NUnit.Framework;
 
-namespace LabyrinthApp.Test.Labyrinth {
+namespace LabyrinthApp.Test.LabyrinthParts {
     class LabGeneratorTests {
         [SetUp]
         public void Setup() {

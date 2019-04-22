@@ -1,9 +1,7 @@
-﻿using LabyrinthApp;
+﻿using LabyrinthApp.LabyrinthParts;
 using NUnit.Framework;
-using System;
-using LabyrinthApp.LabyrinthParts;
 
-namespace CellTests {
+namespace LabyrinthApp.Test.LabyrinthParts {
     class CellTests {
         [Test]
         [TestCase(TypeOfCell.Coin, 2)]

@@ -9,19 +9,23 @@ using LabyrinthApp.LabyrinthParts;
 namespace LabyrinthApp.Test.SingletonHero {
 
     class HeroMotionsTest {
-        private Mock<ILabyrinth> Lab { get; set; }
 
         [SetUp]
         public void SetUp() {
-            var lab = new Mock<ILabyrinth>();
+          
         }
 
         [Test]
         public void MotionsTest() {
+
             var hero = Hero.GetHero;
+            var lab = new Mock<ILabyrinth>();
             var heroMotion = new HeroMotions();
-         //   heroMotion.Motion(new ConsoleKeyInfo('w', ConsoleKey.W, false, false, false), Lab.Object);
-            Assert.Pass();
+            var expected = true;
+
+            var actual = heroMotion.Motion(new ConsoleKeyInfo('w', ConsoleKey.W, false, false, false), lab.Object);
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }

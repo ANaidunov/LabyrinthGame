@@ -24,7 +24,7 @@ namespace LabyrinthApp {
                 Console.ReadKey();
                 return;
             }
-            lab.SpawnHero();
+            lab.SpawnHero(hero);
             
             Drawer.DrawLabyrinth(lab, true);
             Drawer.WriteStats(lab);
@@ -43,7 +43,7 @@ namespace LabyrinthApp {
                     generator = new LabGenerator(size, size);
                     lab = generator.GetLabyrinth();
                     hero.CoinsCount = 0;
-                    lab.SpawnHero();
+                    lab.SpawnHero(hero);
                     lab.GetCoinsCount();
                     Drawer.DrawLabyrinth(lab, true);
                     Drawer.WriteStats(lab);

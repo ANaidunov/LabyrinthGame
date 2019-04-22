@@ -4,7 +4,7 @@ using System.Linq;
 
 
 namespace LabyrinthApp.LabyrinthParts {
-    public class LabGenerator {
+    public class LabGenerator : ILabGenerator {
         private Labyrinth _lab;
         private readonly List<Cell> _blueCells = new List<Cell>();
         private readonly List<Cell> _orangeCells = new List<Cell>();
@@ -37,7 +37,7 @@ namespace LabyrinthApp.LabyrinthParts {
             for (var y = 1; y < _lab.Height - 1; y += 2)
                 _blueCells.Add(_lab[x, y]);
             Step(GetRandomCell(_blueCells), _lab);
-            _lab.GetCoinsCount();
+          //
             return _lab;
         }
 
