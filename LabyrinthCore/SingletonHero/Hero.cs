@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-
-namespace LabyrinthApp.SingletonHero {
+﻿
+namespace LabyrinthCore.SingletonHero {
     public class Hero : IHero {
 
         public int X { get; set; } = 0;

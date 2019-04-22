@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using LabyrinthApp.LabyrinthParts;
-using LabyrinthApp.SingletonHero;
+using LabyrinthApp.Draw;
+using LabyrinthCore.LabyrinthParts;
+using LabyrinthCore.SingletonHero;
 
 namespace LabyrinthApp {
     internal class Program {

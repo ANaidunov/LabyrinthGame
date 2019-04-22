@@ -1,4 +1,4 @@
-﻿namespace LabyrinthApp.LabyrinthParts {
+﻿namespace LabyrinthCore.LabyrinthParts {
     public interface ILabGenerator {
         Labyrinth GetLabyrinth();
     }

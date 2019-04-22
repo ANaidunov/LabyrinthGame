@@ -1,8 +1,9 @@
-﻿using System;
-using LabyrinthApp.SingletonHero;
+﻿using LabyrinthCore.LabyrinthParts;
+using LabyrinthCore.SingletonHero;
+using System;
 
 // stringBuilder is commented
-namespace LabyrinthApp.LabyrinthParts {
+namespace LabyrinthApp.Draw{
     public static class Drawer {
         public static void DrawLabyrinth(Labyrinth labyrinth, bool drawHero) {
             var oldColor = Console.ForegroundColor;
@@ -20,14 +21,14 @@ namespace LabyrinthApp.LabyrinthParts {
                         Console.Write(hero.Symbol);
                         Console.ForegroundColor = oldColor;
                     }
-                    else if (labyrinth[x, y].Val == TypeOfCell.GreatWall || labyrinth[x, y].Val == TypeOfCell.Wall) {
+                    else if (labyrinth[x, y].Val == CellType.GreatWall || labyrinth[x, y].Val == CellType.Wall) {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
 
                         //sb.Append('#');
                         Console.Write('#');
                         Console.ForegroundColor = oldColor;
                     }
-                    else if (labyrinth[x, y].Val == TypeOfCell.Coin) { // coin
+                    else if (labyrinth[x, y].Val == CellType.Coin) { // coin
                         Console.ForegroundColor = ConsoleColor.Yellow;
 
                         //sb.Append('o');

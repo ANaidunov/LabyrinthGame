@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using LabyrinthApp.LabyrinthParts;
-using LabyrinthApp.SingletonHero;
+using LabyrinthCore.LabyrinthParts;
+using LabyrinthCore.SingletonHero;
 using Moq;
 using NUnit.Framework;
 
@@ -22,7 +22,7 @@ namespace LabyrinthApp.Test.LabyrinthParts {
 
             //arrange
             var coins = from cel in lab.Cells
-                where cel.Val == TypeOfCell.Coin
+                where cel.Val == CellType.Coin
                 select cel;
             var expectedCoinsCount = coins.Count();
 
@@ -51,7 +51,7 @@ namespace LabyrinthApp.Test.LabyrinthParts {
         public void RemoveCoinTest() {
 
             //arrange
-            lab[1, 1].Val = TypeOfCell.Coin;
+            lab[1, 1].Val = CellType.Coin;
             lab.GetCoinsCount();
             var excepted = lab.CoinsCount - 1;
 

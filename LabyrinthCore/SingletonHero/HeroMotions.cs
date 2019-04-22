@@ -1,7 +1,7 @@
 ﻿using System;
-using LabyrinthApp.LabyrinthParts;
+using LabyrinthCore.LabyrinthParts;
 
-namespace LabyrinthApp.SingletonHero {
+namespace LabyrinthCore.SingletonHero {
     public class HeroMotions {
 
         public Hero hero = Hero.GetHero;
@@ -43,26 +43,26 @@ namespace LabyrinthApp.SingletonHero {
         }
 
         public void Up(ILabyrinth lab) {
-            if (hero.Y - 1 > 0 && lab[hero.X, hero.Y - 1].Val != TypeOfCell.Wall
-                               && lab[hero.X, hero.Y - 1].Val != TypeOfCell.GreatWall)
+            if (hero.Y - 1 > 0 && lab[hero.X, hero.Y - 1].Val != CellType.Wall
+                               && lab[hero.X, hero.Y - 1].Val != CellType.GreatWall)
                 hero.Y--;
         }
 
         public void Down(ILabyrinth lab) {
-            if (hero.Y + 1 < lab.GetHeight() && lab[hero.X, hero.Y + 1].Val != TypeOfCell.Wall
-                               && lab[hero.X, hero.Y + 1].Val != TypeOfCell.GreatWall)
+            if (hero.Y + 1 < lab.GetHeight() && lab[hero.X, hero.Y + 1].Val != CellType.Wall
+                               && lab[hero.X, hero.Y + 1].Val != CellType.GreatWall)
                 hero.Y++;
         }
 
         public void Left(ILabyrinth lab) {
-            if (hero.X - 1 > 0 && lab[hero.X - 1, hero.Y].Val != TypeOfCell.Wall
-                           && lab[hero.X - 1, hero.Y].Val != TypeOfCell.GreatWall)
+            if (hero.X - 1 > 0 && lab[hero.X - 1, hero.Y].Val != CellType.Wall
+                           && lab[hero.X - 1, hero.Y].Val != CellType.GreatWall)
                 hero.X--;
         }
 
         public void Right(ILabyrinth lab) {
-            if (hero.X + 1 < lab.GetWidth() && lab[hero.X + 1, hero.Y].Val != TypeOfCell.Wall
-                               && lab[hero.X + 1, hero.Y].Val != TypeOfCell.GreatWall)
+            if (hero.X + 1 < lab.GetWidth() && lab[hero.X + 1, hero.Y].Val != CellType.Wall
+                               && lab[hero.X + 1, hero.Y].Val != CellType.GreatWall)
                 hero.X++;
         }
     }

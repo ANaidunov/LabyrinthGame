@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
-using LabyrinthApp.LabyrinthParts;
-using LabyrinthApp.SingletonHero;
+using LabyrinthApp.Draw;
+using LabyrinthCore.LabyrinthParts;
+using LabyrinthCore.SingletonHero;
 using Moq;
 using NUnit.Framework;
 
-namespace LabyrinthApp.Test.LabyrinthParts {
+namespace LabyrinthApp.Test.Draw {
     internal class DrawerTests {
         public Mock<ILabyrinth> labMock = new Mock<ILabyrinth>();
         public Mock<IHero> heroMock = new Mock<IHero>();
@@ -13,7 +14,6 @@ namespace LabyrinthApp.Test.LabyrinthParts {
         [Test]
         public void WriteStatsTest() {
             using (var sw = new StringWriter()) {
-
                 //arrange
                 labMock.Setup(x => x.StartCoinsCount).Returns(1);
                 heroMock.Setup(x => x.CoinsCount).Returns(0);
@@ -31,7 +31,6 @@ namespace LabyrinthApp.Test.LabyrinthParts {
         [Test]
         public void WriteRulesTest() {
             using (var sw = new StringWriter()) {
-
                 //arrange
                 Console.SetOut(sw);
                 var expected = "Press R to start again\r\nCollect all coins to win!";

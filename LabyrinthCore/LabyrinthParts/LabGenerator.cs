@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
-namespace LabyrinthApp.LabyrinthParts {
+namespace LabyrinthCore.LabyrinthParts {
     public class LabGenerator : ILabGenerator {
         private Labyrinth _lab;
         private readonly List<Cell> _blueCells = new List<Cell>();
@@ -42,7 +41,7 @@ namespace LabyrinthApp.LabyrinthParts {
         }
 
         private void Step(Cell currentCell, Labyrinth lab) {
-            currentCell.Val = (TypeOfCell) rnd.Next(1, 3); //rnd 1 or 2 (zero or coin)
+            currentCell.Val = (CellType) rnd.Next(1, 3); //rnd 1 or 2 (zero or coin)
             var neighbourCells = GetNeighbourCells(currentCell, lab);
             if (neighbourCells[0] != null || neighbourCells[1] != null || neighbourCells[2] != null ||
                 neighbourCells[3] != null) {
@@ -56,16 +55,16 @@ namespace LabyrinthApp.LabyrinthParts {
 
                 switch (randIdnex) {
                     case 0: // left
-                        lab[currentCell.X - 1, currentCell.Y].Val = (TypeOfCell) rnd.Next(1, 3);
+                        lab[currentCell.X - 1, currentCell.Y].Val = (CellType) rnd.Next(1, 3);
                         break;
                     case 1: // right
-                        lab[currentCell.X + 1, currentCell.Y].Val = (TypeOfCell) rnd.Next(1, 3);
+                        lab[currentCell.X + 1, currentCell.Y].Val = (CellType) rnd.Next(1, 3);
                         break;
                     case 2: // up 
-                        lab[currentCell.X, currentCell.Y - 1].Val = (TypeOfCell) rnd.Next(1, 3);
+                        lab[currentCell.X, currentCell.Y - 1].Val = (CellType) rnd.Next(1, 3);
                         break;
                     case 3: // down
-                        lab[currentCell.X, currentCell.Y + 1].Val = (TypeOfCell) rnd.Next(1, 3);
+                        lab[currentCell.X, currentCell.Y + 1].Val = (CellType) rnd.Next(1, 3);
                         break;
                 }
 
@@ -108,20 +107,20 @@ namespace LabyrinthApp.LabyrinthParts {
         private bool IsVisited(Cell cell, Labyrinth lab) {
             if (cell == null) return true;
             if (lab[cell.X - 1, cell.Y] != null && cell.X - 1 >= 0
-                                                && lab[cell.X - 1, cell.Y].Val != TypeOfCell.Wall
-                                                && lab[cell.X - 1, cell.Y].Val != TypeOfCell.GreatWall)
+                                                && lab[cell.X - 1, cell.Y].Val != CellType.Wall
+                                                && lab[cell.X - 1, cell.Y].Val != CellType.GreatWall)
                 return true;
             if (lab[cell.X + 1, cell.Y] != null && cell.X + 1 <= lab.Width - 1
-                                                && lab[cell.X + 1, cell.Y].Val != TypeOfCell.Wall
-                                                && lab[cell.X + 1, cell.Y].Val != TypeOfCell.GreatWall)
+                                                && lab[cell.X + 1, cell.Y].Val != CellType.Wall
+                                                && lab[cell.X + 1, cell.Y].Val != CellType.GreatWall)
                 return true;
             if (lab[cell.X, cell.Y - 1] != null && cell.Y - 1 >= 0
-                                                && lab[cell.X, cell.Y - 1].Val != TypeOfCell.Wall
-                                                && lab[cell.X, cell.Y - 1].Val != TypeOfCell.GreatWall)
+                                                && lab[cell.X, cell.Y - 1].Val != CellType.Wall
+                                                && lab[cell.X, cell.Y - 1].Val != CellType.GreatWall)
                 return true;
             if (lab[cell.X, cell.Y + 1] != null && cell.X + 1 <= lab.Width - 1
-                                                && lab[cell.X, cell.Y + 1].Val != TypeOfCell.Wall
-                                                && lab[cell.X, cell.Y + 1].Val != TypeOfCell.GreatWall)
+                                                && lab[cell.X, cell.Y + 1].Val != CellType.Wall
+                                                && lab[cell.X, cell.Y + 1].Val != CellType.GreatWall)
                 return true;
             return false;
         }

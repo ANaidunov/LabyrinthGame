@@ -1,5 +1,5 @@
 using LabyrinthApp;
-using LabyrinthApp.SingletonHero;
+using LabyrinthCore.SingletonHero;
 using NUnit.Framework;
 using System;
 

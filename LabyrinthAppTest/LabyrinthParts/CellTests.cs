@@ -1,14 +1,15 @@
-﻿using LabyrinthApp.LabyrinthParts;
+﻿
+using LabyrinthCore.LabyrinthParts;
 using NUnit.Framework;
 
 namespace LabyrinthApp.Test.LabyrinthParts {
     class CellTests {
         [Test]
-        [TestCase(TypeOfCell.Coin, 2)]
-        [TestCase(TypeOfCell.Ground, 1)]
-        [TestCase(TypeOfCell.Wall, 0)]
-        [TestCase(TypeOfCell.GreatWall, 10)]
-        public void WrongCellEnum(TypeOfCell type, int num) {
+        [TestCase(CellType.Coin, 2)]
+        [TestCase(CellType.Ground, 1)]
+        [TestCase(CellType.Wall, 0)]
+        [TestCase(CellType.GreatWall, 10)]
+        public void WrongCellEnum(CellType type, int num) {
             //arrange
 
             //act

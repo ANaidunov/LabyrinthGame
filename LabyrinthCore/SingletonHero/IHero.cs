@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace LabyrinthApp.SingletonHero {
+﻿namespace LabyrinthCore.SingletonHero {
     public interface IHero {
         int X { get; set; }
         int Y { get; set; }

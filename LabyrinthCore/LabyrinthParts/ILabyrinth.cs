@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using LabyrinthApp.SingletonHero;
+using LabyrinthCore.SingletonHero;
 
-namespace LabyrinthApp.LabyrinthParts {
+
+namespace LabyrinthCore.LabyrinthParts {
     public interface ILabyrinth {
         void GetCoinsCount();
         void SpawnHero(IHero hero);
